@@ -84,7 +84,7 @@ options:
                         3) w = sqrt(ck^3)
                         4) w = sqrt(b+ck^2)
 
-Generate le frequenze e le ampiezze, viene chiesto all'utente se vuole visualizzare
+Generate le frequenze e le ampiezze (il numero di frequenze da generare viene chiesto all'utente), si domanda all'utente se vuole visualizzare
 
 - l'istogramma normalizzato delle frequenze generate (insieme al plot della distribuzione di robabilità)
 - l'istogramma delle ampiezze generate
