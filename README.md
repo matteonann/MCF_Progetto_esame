@@ -13,24 +13,39 @@ disp : list
         Il primo elemento è la funzione che restituisce il k dalla relazione di dispersione, i successivi sono gli eventuali parametri della funzione
 
 Metodi (oltre al costruttore):
-display_components_df(**kwargs) :
-        Mostra un dataframe di "Pandas" con l'elenco delle frequenze, e relative ampiezze, contenute nel pacchetto				  
-generate_wave_x(x, t, **kwargs) :
+
+- display_components_df(**kwargs) :
+        Mostra un dataframe di "Pandas" con l'elenco delle frequenze, e relative ampiezze, contenute nel pacchetto	
+	
+- generate_wave_x(x, t, **kwargs) :
         Calcola la forma d'onda del pacchetto lungo l'asse x all'istante t tramite la formula
-	wf = sum_i (A_i*cos(k_i*x-2*pi*f_i*t)), con
+
+	
+  	wf = sum_i (A_i*cos(k_i*x-2*pi*f_i*t)), con
+ 
 	-i = indice che scorre tutti gli elementi dell'array delle frequenze (e ampiezze)
+  
 	-f_i = i-esima frequenza
+  
 	-A_i = i-esima ampiezza
+  
 	-k_i = i-esimo numero d'onda (restituito dalla relazione di dispersione)
+  
 	-x = array delle posizioni in cui campionare il pacchetto d'onda
+  
 	-t = istante fissato al quale calcolare la forma d'onda
-generate_wave_t(t, x, **kwargs) :
+
+ 
+- generate_wave_t(t, x, **kwargs) :
         Calcola la forma d'onda del pacchetto lungo l'asse t alla posizione x tramite la stessa formula indicata precedentemente, con la differenza che in questo caso t è un array e x è un float
-wave(axis, **kwargs) :
+	
+- wave(axis, **kwargs) :
 	Chiama uno dei due metodi "generate_" descritti sopra (in base al valore di axis passato) e rappresenta graficamente la forma d'onda.  
-animate(d, step, xx, **kwargs) :
+
+- animate(d, step, xx, **kwargs) :
         Chiama il metodo wave per rappresentare la forma d'onda lungo l'asse x (nei punti dell'array "xx") ad ogni istante che va da 0 a "d" con passo "step". I plot sono uniti in un'animazione di "matplotlib" che può essere salvata dall'utente.
-power_spectrum(t, x) :
+
+- power_spectrum(t, x) :
         Chiama il metodo "generate_wave_t" per generare dapprima la forma d'onda lungo l'asse t all'intervallo di tempo e nella posizione specificati. Successivamente, calcola la trasformata di Fourier e le frequenze con i metodi ".rfft" e ".rfftfreq" di "scipy.fft", per poi calcolare le potenze (moduli quadri dei coefficienti di Fourier). Se specificato, esegue anche il plot dello spettro di potenza.
 
 
@@ -43,16 +58,23 @@ usage: wpack_test.py [-h] [-fd FREQ_DIST] [-ad AMPL_DIST] [-dr DISP_REL]
 Choosing freq/ampl distributions and dispersion relations
 
 options:
+
   -h, --help            show this help message and exit
+  
   -fd FREQ_DIST, --freq_dist FREQ_DIST
+  
                         Frequency distribution. Choose from the following:
                         1) p(f) = f/3 for f in [0, 2], 2/3(3-f) for f in (2, 3] (default)
                         2) p(f) = 2/9 f for f in [0, 3]
+			
   -ad AMPL_DIST, --ampl_dist AMPL_DIST
+  
                         Amplityde distribution. Choose from the following:
                         1) p_f(A) = A for A in [0, a*sqrt(f)] (default)
                         2) p_f(A) = (1+f)^3 A^2 for A in [0, 1/(1+f)]
+			
   -dr DISP_REL, --disp_rel DISP_REL
+  
                         Dispersion relation. Choose from the following:
                         1) w = sqrt(ck)
                         2) w = sqrt(ck^2) (default)
