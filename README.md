@@ -5,11 +5,14 @@ Il primo script, wpack.py, è una libreria creata per generare, osservare e stud
 Gli attributi e i metodi della classe sono descritti nella libreria con delle docstring, ma, per completezza, vengono riportati anche qui sotto:
 
 Attributi:
-freqs : array/list
-        Frequenze contenute nel oacchetto.
-amplitudes : array/list
+
+- freqs : array/list
+        Frequenze contenute nel pacchetto.
+  
+- amplitudes : array/list
         Ampiezze associate alle frequenze.
-disp : list
+  
+- disp : list
         Il primo elemento è la funzione che restituisce il k dalla relazione di dispersione, i successivi sono gli eventuali parametri della funzione
 
 Metodi (oltre al costruttore):
